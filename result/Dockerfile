@@ -28,4 +28,4 @@ ENV PORT 8080
 
 EXPOSE 8080
 
-CMD ["/tini", "--", "node", "app/server.js"]
+CMD ["/tini", "--", "node", "server.js"]
