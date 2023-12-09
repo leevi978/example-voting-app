@@ -2,9 +2,7 @@ FROM node:10-slim
 
 # add curl for healthcheck
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get install -y curl
 
 # Add Tini for proper init of signals
 ENV TINI_VERSION v0.19.0
