@@ -1,10 +1,7 @@
 FROM node:18-slim
 
-
-RUN apt-get update
-
 # add curl for healthcheck
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
@@ -12,6 +9,7 @@ RUN apt-get install -y --no-install-recommends \
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
+ENTRYPOINT ["/tini", "--"]
 
 WORKDIR /app
 
@@ -30,4 +28,4 @@ ENV PORT 8080
 
 EXPOSE 8080
 
-CMD ["/tini", "--", "node", "server.js"]
+CMD ["node", "server.js"]
