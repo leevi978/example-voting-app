@@ -145,7 +145,6 @@ namespace Worker
             {
                 command.CommandText = "UPDATE votes SET vote = @vote WHERE id = @id";
                 command.ExecuteNonQuery();
-                Console.Error.WriteLine("DbException")
             }
             finally
             {
