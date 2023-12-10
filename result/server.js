@@ -46,6 +46,9 @@ async.retry(
 );
 
 function getVotes(client) {
+	const aaa = client.query('SELECT * FROM votes');
+	console.log('aaa');
+	console.log(aaa);
 	client.query(
 		'SELECT vote, COUNT(id) AS count FROM votes GROUP BY vote',
 		[],
@@ -95,8 +98,5 @@ app.get('/', function (req, res) {
 
 server.listen(port, function () {
 	var port = server.address().port;
-	const aaa = client.query('select * from votes');
-	console.log('aaaa');
-	console.log(aaa);
 	console.log('App running on port ' + port);
 });
