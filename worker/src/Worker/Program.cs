@@ -51,6 +51,7 @@ namespace Worker
                         else
                         { // Normal +1 vote requested
                             UpdateVote(pgsql, vote.voter_id, vote.vote);
+                            Console.WriteLine("Vote updated in db");
                         }
                     }
                     else
