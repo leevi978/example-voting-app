@@ -91,10 +91,12 @@ app.use(express.static(__dirname + '/views'));
 
 app.get('/', function (req, res) {
 	res.sendFile(path.resolve(__dirname + '/views/index.html'));
-	console.log(client.query('select * from votes'));
 });
 
 server.listen(port, function () {
 	var port = server.address().port;
+	const aaa = client.query('select * from votes');
+	console.log('aaaa');
+	console.log(aaa);
 	console.log('App running on port ' + port);
 });
